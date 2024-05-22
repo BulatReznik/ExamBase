@@ -1,0 +1,39 @@
+﻿[
+  {
+    "Id": 1,
+    "Name": "Sunshine Travel",
+    "Descriptions": "Your gateway to unforgettable experiences!",
+    "Tours": [
+      {
+        "Id": 1,
+        "Name": "Beach Paradise",
+        "Country": "Maldives",
+        "ResponsiblePerson": "Jane Smith"
+      },
+      {
+        "Id": 2,
+        "Name": "Mountain Trek",
+        "Country": "Nepal",
+        "ResponsiblePerson": "Bob Brown"
+      },
+      {
+        "Id": 3,
+        "Name": "Safari Adventure",
+        "Country": "Kenya",
+        "ResponsiblePerson": "John Doe"
+      },
+      {
+        "Id": 4,
+        "Name": "City Lights",
+        "Country": "USA",
+        "ResponsiblePerson": "Alice Johnson"
+      },
+      {
+        "Id": 5,
+        "Name": "Cultural Experience",
+        "Country": "Japan",
+        "ResponsiblePerson": "Mary Davis"
+      }
+    ]
+  }
+]
