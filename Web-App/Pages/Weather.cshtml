@@ -1,0 +1,51 @@
+﻿@page
+@model Web_App.Pages.WeatherModel
+@{
+}
+
+<body>
+    <div class="container">
+        <h1>Прогноз погоды</h1>
+
+        @if (Model.Weather != null)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Облачность</th>
+                        <th>Видимость</th>
+                        <th>Прозрачность</th>
+                        <th>Индекс поднятия</th>
+                        <th>Влажность</th>
+                        <th>Направление ветра</th>
+                        <th>Скорость ветра</th>
+                        <th>Температура</th>
+                        <th>Тип осадков</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var dataSeries in Model.Weather.dataseries)
+                    {
+                        <tr>
+                            <td>@dataSeries.DateTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@dataSeries.cloudcover</td>
+                            <td>@dataSeries.seeing</td>
+                            <td>@dataSeries.transparency</td>
+                            <td>@dataSeries.liftedindex</td>
+                            <td>@dataSeries.rh2m</td>
+                            <td>@dataSeries.wind10m.direction</td>
+                            <td>@dataSeries.wind10m.speed</td>
+                            <td>@dataSeries.temp2m</td>
+                            <td>@dataSeries.prec_type</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Данные о погоде недоступны.</p>
+        }
+    </div>
+</body>
