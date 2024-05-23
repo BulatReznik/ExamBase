@@ -1,0 +1,79 @@
+﻿@page
+@model Web_App.Pages.TimeTableModel
+@{
+    var daysOfWeek = new[] { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
+    var maxLessons = 8;
+}
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            line-height: 1.1;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #0C213B;
+            width: 15%;
+        }
+
+        .lesson-cell {
+            height: 150px;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        @foreach (var week in Model.TimeTables)
+        {
+            <div class="my-4">Четная неделя? - @(week.isOdd ? "Да" : "Нет")</div>
+
+            <table class="timetable-table">
+                <thead>
+                    <tr>
+                        @foreach (var dayName in daysOfWeek)
+                        {
+                            <th>@dayName</th>
+                        }
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (var lessonIndex = 0; lessonIndex < maxLessons; lessonIndex++)
+                    {
+                        <tr>
+                            @foreach (var day in week.days)
+                            {
+                                <td class="lesson-cell">
+                                    @if (lessonIndex < day.lessons.Count && day.lessons[lessonIndex] != null)
+                                    {
+                                        var lesson = day.lessons[lessonIndex];
+
+                                        <div class="lesson-content">
+                                            <div>Номер: @(lessonIndex + 1)</div>
+                                            <div>@lesson.room.name</div>
+                                            <div>@lesson.group.name</div>
+                                            <div>@lesson.subject.name</div>
+                                            <div>@lesson.subject.teacher.fullName</div>
+                                            <div>@lesson.subject.type</div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="lesson-content">
+                                            <div>Номер: @(lessonIndex + 1)</div>
+                                            <div>Окно</div>
+                                        </div>
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</body>

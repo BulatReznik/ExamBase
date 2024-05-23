@@ -1,0 +1,16 @@
+﻿@page
+@model Web_App.Pages.GroupsModel
+@{
+    ViewData["Title"] = "Groups";
+}
+
+<body>
+    <div class="container">
+        @foreach (var group in Model.Groups)
+        {
+            <div class="card">
+                <div class="card-text">@group.name</div>
+            </div>
+        }
+    </div>
+</body>

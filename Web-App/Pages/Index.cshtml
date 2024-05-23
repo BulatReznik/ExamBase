@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<head>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Вход на сайт</h2>
+            <div class="form-group">
+                <label for="username">Логин:</label>
+                <input type="text" class="form-control" id="username" name="username" />
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" class="form-control" id="password" name="password" />
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+        <!-- Основное содержимое страницы -->
+        <div class="main-content">
+            <label>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </label>
+        </div>
+    </div>
+</body>

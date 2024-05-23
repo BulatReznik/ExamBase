@@ -1,0 +1,16 @@
+﻿@page
+@model Web_App.Pages.TeachersModel
+@{
+    ViewData["Title"] = "Teachers";
+}
+
+<body>
+    <div class="container">
+        @foreach (var room in Model.Teachers)
+        {
+            <div class="card">
+                <div class="card-text">@room.fullName</div>
+            </div>
+        }
+    </div>
+</body>

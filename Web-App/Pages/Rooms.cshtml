@@ -1,0 +1,15 @@
+﻿@page
+@model Web_App.Pages.RoomsModel
+@{
+}
+
+<body>
+<div class="container">
+    @foreach (var room in Model.Rooms)
+    {
+        <div class="card">
+            <div class="card-text">@room.name</div>
+        </div>
+    }
+</div>
+</body>
