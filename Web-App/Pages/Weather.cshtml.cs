@@ -7,33 +7,25 @@ namespace Web_App.Pages
 {
     public class WeatherModel : PageModel
     {
-        public Weather Weather { get; set; }
+        public List<Weather> WeatherList { get; set; }
+
         public async Task<IActionResult> OnGet()
         {
-            var client = new HttpClient
+            var client = new HttpClient()
             {
-                BaseAddress = new Uri("http://www.7timer.info/")
+                BaseAddress = new Uri("https://vm.nathoro.ru/")
             };
 
-            var lon = "113.17";
-            var lat = "23.09";
-            var product = "astro";
-            var output = "json";
-
-            var url = $"bin/api.pl?lon={lon}&lat={lat}&product={product}&output={output}";
-
-            var result = await client.GetAsync(url);
+            var result = await client.GetAsync("weather?lattitude=54.3&longitude=48.8");
 
             if (result.IsSuccessStatusCode)
             {
                 var content = await result.Content.ReadAsStringAsync();
+                WeatherList = JsonSerializer.Deserialize<List<Weather>>(content);
 
-                Weather = JsonSerializer.Deserialize<Weather>(content);
-
-                // Форматируем каждую дату и время в объекте Weather
-                foreach (var dataSeries in Weather.dataseries)
+                foreach (var weather in WeatherList)
                 {
-                    dataSeries.DateTime = DateTime.Today.AddHours(dataSeries.timepoint);
+                    weather.dateString = weather.date.ToString("yyyy MMMM dd hh:mm");
                 }
             }
 

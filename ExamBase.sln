@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C#", "C#\C#.csproj", "{3A8C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web-App", "Web-App\Web-App.csproj", "{41C50338-5876-4108-B11C-97895566CB41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C# Algorithms", "C# Alhghoritms\C# Algorithms.csproj", "{F102960A-BB0E-492B-91EE-650A193802C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C# Algorithms", "C# Alhghoritms\C# Algorithms.csproj", "{F102960A-BB0E-492B-91EE-650A193802C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
