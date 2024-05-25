@@ -1,16 +1,46 @@
 ﻿@page
 @model Web_App.Pages.WeatherModel
 @{
+    TempData["Title"] = "Погода"; 
 }
 
-@foreach (var weather in Model.WeatherList)
-{
-    <div class="card">
-        <div>Name @weather.name</div>
-        <div>Date @weather.dateString</div>
-        <div>Humidity @weather.humidity</div>
-        <div>Location @weather.location</div>
-        <div>Temperature @weather.temperature</div>
-        <div>WindSpeed @weather.windSpeed</div>
+<head>
+    <style>
+        .card {
+            background-color: honeydew;
+
+            margin-left: 10px;
+            margin-bottom: 10px;
+
+            width: fit-content;
+            min-width: 300px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        @foreach (var weather in Model.WeatherList)
+        {
+            <div class="card">
+
+                <div class="card-header">
+                    <div>Дата @weather.dateString</div>
+                </div>
+
+                <div class="card-body">
+                    <div>Температура @weather.temperature</div>
+                    <div>Город @weather.location</div>
+                    <div>Скорость ветра @weather.windSpeed</div>
+                    <div>Влажность @weather.humidity</div>
+                </div>
+            </div>
+        }
     </div>
-}
+</body>
