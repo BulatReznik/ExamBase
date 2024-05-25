@@ -9,6 +9,9 @@ namespace Web_App.Pages
     {
         public List<Weather> WeatherList { get; set; }
 
+        public string Lattitude { get; set; }
+        public string Longitude { get; set; }
+
         public async Task<IActionResult> OnGet()
         {
             var client = new HttpClient()

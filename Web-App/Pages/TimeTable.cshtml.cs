@@ -9,13 +9,13 @@ namespace Web_App.Pages
     {
         public List<TimeTable> TimeTables { get; set; }
 
+        [BindProperty]
         public string GroupName { get; set; }
 
-        public async Task<IActionResult> OnGet()
+        public async Task<IActionResult> OnPost()
         {
             try
             {
-                GroupName = "ΟΘαδ-41";
                 var client = new HttpClient()
                 {
                     BaseAddress = new Uri("https://vm.nathoro.ru/")
@@ -45,5 +45,9 @@ namespace Web_App.Pages
             }
         }
 
+        public async Task<IActionResult> OnGet()
+        {
+            return Page();
+        }
     }
 }
