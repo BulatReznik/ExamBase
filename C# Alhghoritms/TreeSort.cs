@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace C__Algorithms
+﻿namespace C__Algorithms
 {
     internal class TreeSort
     {
@@ -25,14 +19,9 @@ namespace C__Algorithms
         }
 
         // Определение класса Node
-        public class Node
+        public class Node(int value)
         {
-            public Node(int value)
-            {
-                Value = value;
-            }
-
-            public int Value { get; set; }
+            public int Value { get; set; } = value;
             public Node? LeftNode { get; set; }
             public Node? RightNode { get; set; }
         }

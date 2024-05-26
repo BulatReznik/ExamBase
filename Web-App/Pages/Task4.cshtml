@@ -1,0 +1,80 @@
+﻿@page
+@model Web_App.Pages.Task4Model
+@{
+    ViewData["Title"] = "LoginPage";
+}
+
+<head>
+    <style>
+        .container {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background-color: lightgray;
+        }
+
+        .card {
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            background-color: white;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .name,
+        .password {
+            flex-direction: column;
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .buttonSuc {
+            background-color: rgb(115, 186, 115);
+            border-radius: 3px;
+            border: 2px;
+            cursor: pointer;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            align-content: center;
+            text-align: center;
+        }
+    </style>
+
+    <link rel="icon" type="image/png" href="icon2.png">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <form>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="name">
+                    <label asp-for="Login.UserName" class="form-text">Имя</label>
+                    <input asp-for="Login.UserName" type="text" class="form-control" />
+                    <span asp-validation-for="Login.UserName" class="text-danger"></span>
+                </div>
+                <div class="password">
+                    <label asp-for="Login.Password" class="form-text">Пароль</label>
+                    <input asp-for="Login.Password" type="password" class="form-control" />
+                    <span asp-validation-for="Login.Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="buttonSuc">Войти</button>
+            </form>
+        </div>
+    </div>
+</body>
