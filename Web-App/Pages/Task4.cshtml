@@ -48,7 +48,7 @@
     </style>
 
     <link rel="icon" type="image/png" href="icon2.png">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
@@ -59,9 +59,6 @@
     <div class="container">
         <div class="card">
             <form>
-
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                 <div class="name">
                     <label asp-for="Login.UserName" class="form-text">Имя</label>
                     <input asp-for="Login.UserName" type="text" class="form-control" />
@@ -72,7 +69,6 @@
                     <input asp-for="Login.Password" type="password" class="form-control" />
                     <span asp-validation-for="Login.Password" class="text-danger"></span>
                 </div>
-
                 <button type="submit" class="buttonSuc">Войти</button>
             </form>
         </div>
