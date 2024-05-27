@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using C__Algorithms;
 
-namespace C__Alhghoritms
+namespace C__Algorithms
 {
     internal class Program
     {
@@ -44,6 +44,16 @@ namespace C__Alhghoritms
             var btreeSort = new TreeSort();
             var btreeSortList = btreeSort.Sort(new List<int>(list));
             PrintList(btreeSortList);
+
+            HashTable hashTable = new HashTable();
+
+            for (int i = 1; i < 100; i++)
+            {
+                hashTable.Insert(i.ToString(), $"value {i}");
+            }
+
+            var item = hashTable.Search("99");
+            Console.WriteLine(item);
         }
 
         // Метод для генерации нового списка случайных чисел

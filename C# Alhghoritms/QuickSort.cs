@@ -1,4 +1,4 @@
-﻿namespace C__Alhghoritms
+﻿namespace C__Algorithms
 {
     public class QuickSort
     {
@@ -35,7 +35,7 @@
                 }
             }
 
-            List<int> result = new List<int>();
+            var result = new List<int>();
 
             leftSide = Sort(leftSide);
             rightSide = Sort(rightSide);
