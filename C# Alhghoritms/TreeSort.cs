@@ -1,10 +1,10 @@
 ﻿namespace C__Algorithms
 {
-    internal class TreeSort
+    public class TreeSort
     {
         public List<int> Sort(List<int> list)
         {
-            var tree = new BTree(list[0]); 
+            var tree = new BTree(list[0]);
 
             // Добавляем все элементы списка в дерево
             for (var i = 1; i < list.Count; i++)
@@ -19,17 +19,26 @@
         }
 
         // Определение класса Node
-        public class Node(int value)
+        public class Node
         {
-            public int Value { get; set; } = value;
+            public Node(int value)
+            {
+                Value = value;
+            }
+
+            public int Value { get; set; }
             public Node? LeftNode { get; set; }
             public Node? RightNode { get; set; }
         }
 
         // Определение класса BTree
-        public class BTree(int root)
+        public class BTree
         {
-            public Node Root { get; set; } = new(root);
+            public BTree(int root)
+            {
+                Root = new Node(root);
+            }
+            public Node Root { get; set; }
 
             // Метод для добавления нового значения в дерево
             public void Add(int newValue)
