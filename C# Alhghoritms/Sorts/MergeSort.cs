@@ -1,4 +1,4 @@
-﻿namespace C__Algorithms
+﻿namespace C__Alhghoritms.Sorts
 {
     internal class MergeSort
     {

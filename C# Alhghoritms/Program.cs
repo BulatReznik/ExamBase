@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using C__Algorithms;
+using C__Alhghoritms;
+using C__Alhghoritms.HashTable;
 
-namespace C__Alhghoritms
+namespace C__Algorithms
 {
     internal class Program
     {
@@ -44,6 +45,29 @@ namespace C__Alhghoritms
             var btreeSort = new TreeSort();
             var btreeSortList = btreeSort.Sort(new List<int>(list));
             PrintList(btreeSortList);
+
+            HashTable hashTable = new HashTable();
+
+            for (int i = 1; i < 100; i++)
+            {
+                hashTable.Insert(i.ToString(), $"value {i}");
+            }
+
+            var item = hashTable.Search("99");
+            Console.WriteLine(item);
+
+            var doubleList = new DoubleLinkedList();
+            doubleList.Add("10");
+            doubleList.Add("4");
+            doubleList.Add("3");
+            doubleList.Add("1");
+            doubleList.Add("2");
+            doubleList.Add("0");
+            doubleList.Add("27");
+            doubleList.Add("23");
+
+            doubleList.PrintList();
+
         }
 
         // Метод для генерации нового списка случайных чисел
