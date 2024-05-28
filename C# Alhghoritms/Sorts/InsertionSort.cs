@@ -8,9 +8,9 @@ namespace C__Alhghoritms.Sorts
 {
     public class InsertionSort
     {
-        public void Sort(List<int> array)
+        public void Sort(int[] array)
         {
-            var arrayCount = array.Count;
+            var arrayCount = array.Length;
             for (var i = 1; i < arrayCount; i++)
             {
                 var key = array[i];

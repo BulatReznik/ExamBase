@@ -1,13 +1,13 @@
-﻿namespace C__Alhghoritms.Sorts
+﻿namespace C__Algorithms.Sorts
 {
     internal class TreeSort
     {
-        public List<int> Sort(List<int> list)
+        public int[] Sort(int[] array)
         {
             var tree = new BTree();
 
-            // Добавляем все элементы списка в дерево
-            foreach (var item in list)
+            // Добавляем все элементы массива в дерево
+            foreach (var item in array)
             {
                 tree.Add(item);
             }
@@ -15,7 +15,7 @@
             var sortedList = new List<int>();
             tree.InOrderTraversal(tree.Root, sortedList);
 
-            return sortedList;
+            return sortedList.ToArray();
         }
 
         public class Node

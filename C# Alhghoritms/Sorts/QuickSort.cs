@@ -1,25 +1,25 @@
-﻿namespace C__Alhghoritms.Sorts
+﻿namespace C__Algorithms.Sorts
 {
     public class QuickSort
     {
-        private int GetMiddleIndex(List<int> list)
+        private int GetMiddleIndex(int[] array)
         {
-            return list.Count / 2;
+            return array.Length / 2;
         }
 
-        public List<int> Sort(List<int> list)
+        public int[] Sort(int[] array)
         {
-            if (list.Count <= 1)
-                return list;
+            if (array.Length <= 1)
+                return array;
 
-            var middleIndex = GetMiddleIndex(list);
-            var middle = list[middleIndex];
+            int middleIndex = GetMiddleIndex(array);
+            int middle = array[middleIndex];
 
             var leftSide = new List<int>();
             var rightSide = new List<int>();
-            var middleSide = new List<int>(middle);
+            var middleSide = new List<int>();
 
-            foreach (var item in list)
+            foreach (var item in array)
             {
                 if (item < middle)
                 {
@@ -35,14 +35,26 @@
                 }
             }
 
-            var result = new List<int>();
+            int[] leftSorted = Sort(leftSide.ToArray());
+            int[] rightSorted = Sort(rightSide.ToArray());
 
-            leftSide = Sort(leftSide);
-            rightSide = Sort(rightSide);
+            var result = new int[array.Length];
+            int index = 0;
 
-            result.AddRange(leftSide);
-            result.AddRange(middleSide);
-            result.AddRange(rightSide);
+            foreach (var item in leftSorted)
+            {
+                result[index++] = item;
+            }
+
+            foreach (var item in middleSide)
+            {
+                result[index++] = item;
+            }
+
+            foreach (var item in rightSorted)
+            {
+                result[index++] = item;
+            }
 
             return result;
         }

@@ -1,47 +1,59 @@
-﻿namespace C__Alhghoritms.Sorts
+﻿namespace C__Algorithms.Sorts
 {
     internal class MergeSort
     {
-        public List<int> Sort(List<int> list)
+        public int[] Sort(int[] list)
         {
-            if (list.Count <= 1)
+            if (list.Length <= 1)
             {
                 return list;
             }
 
-            var middleIndex = GetMiddleIndex(list);
-            var leftSide = Sort(list.Take(middleIndex).ToList());
-            var rightSide = Sort(list.Skip(middleIndex).ToList());
+            int middleIndex = GetMiddleIndex(list);
+            int[] leftSide = Sort(list.Take(middleIndex).ToArray());
+            int[] rightSide = Sort(list.Skip(middleIndex).ToArray());
 
             return Merge(leftSide, rightSide);
         }
 
-        private int GetMiddleIndex(List<int> list)
+        private int GetMiddleIndex(int[] list)
         {
-            return list.Count / 2;
+            return list.Length / 2;
         }
 
-        private List<int> Merge(List<int> leftSide, List<int> rightSide)
+        private int[] Merge(int[] leftSide, int[] rightSide)
         {
-            var result = new List<int>();
-            int leftIndex = 0, rightIndex = 0;
+            int[] result = new int[leftSide.Length + rightSide.Length];
+            int leftIndex = 0, rightIndex = 0, resultIndex = 0;
 
-            while (leftIndex < leftSide.Count && rightIndex < rightSide.Count)
+            while (leftIndex < leftSide.Length && rightIndex < rightSide.Length)
             {
                 if (leftSide[leftIndex] <= rightSide[rightIndex])
                 {
-                    result.Add(leftSide[leftIndex]);
+                    result[resultIndex] = leftSide[leftIndex];
                     leftIndex++;
                 }
                 else
                 {
-                    result.Add(rightSide[rightIndex]);
+                    result[resultIndex] = rightSide[rightIndex];
                     rightIndex++;
                 }
+                resultIndex++;
             }
 
-            result.AddRange(leftSide.Skip(leftIndex));
-            result.AddRange(rightSide.Skip(rightIndex));
+            while (leftIndex < leftSide.Length)
+            {
+                result[resultIndex] = leftSide[leftIndex];
+                leftIndex++;
+                resultIndex++;
+            }
+
+            while (rightIndex < rightSide.Length)
+            {
+                result[resultIndex] = rightSide[rightIndex];
+                rightIndex++;
+                resultIndex++;
+            }
 
             return result;
         }

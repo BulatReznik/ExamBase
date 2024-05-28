@@ -8,9 +8,9 @@ namespace C__Alhghoritms.Sorts
 {
     public class HeapSort
     {
-        public void Sort(List<int> list)
+        public void Sort(int[] list)
         {
-            var count = list.Count;
+            var count = list.Length;
 
             // Построение кучи (перегруппировка списка)
             for (var i = count / 2 - 1; i >= 0; i--)
@@ -29,7 +29,7 @@ namespace C__Alhghoritms.Sorts
             }
         }
 
-        private void Heapify(List<int> list, int n, int i)
+        private void Heapify(int[] list, int n, int i)
         {
             var largest = i; // Инициализируем наибольший как корень
             var left = 2 * i + 1; // левый = 2*i + 1

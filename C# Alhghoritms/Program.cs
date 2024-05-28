@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using C__Alhghoritms;
 using C__Alhghoritms.HashTable;
+using C__Alhghoritms.Lists;
+using C__Alhghoritms.Sorts;
 
 namespace C__Algorithms
 {
