@@ -1,4 +1,4 @@
-﻿namespace C__Algorithms
+﻿namespace C__Alhghoritms.Sorts
 {
     public class QuickSort
     {
@@ -17,7 +17,7 @@
 
             var leftSide = new List<int>();
             var rightSide = new List<int>();
-            var middleSide = new List<int>( middle);
+            var middleSide = new List<int>(middle);
 
             foreach (var item in list)
             {
@@ -25,7 +25,7 @@
                 {
                     leftSide.Add(item);
                 }
-                else if(item > middle) 
+                else if (item > middle)
                 {
                     rightSide.Add(item);
                 }

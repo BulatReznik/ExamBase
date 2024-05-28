@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using C__Algorithms;
+using C__Alhghoritms;
+using C__Alhghoritms.HashTable;
 
 namespace C__Algorithms
 {
@@ -54,6 +55,19 @@ namespace C__Algorithms
 
             var item = hashTable.Search("99");
             Console.WriteLine(item);
+
+            var doubleList = new DoubleLinkedList();
+            doubleList.Add("10");
+            doubleList.Add("4");
+            doubleList.Add("3");
+            doubleList.Add("1");
+            doubleList.Add("2");
+            doubleList.Add("0");
+            doubleList.Add("27");
+            doubleList.Add("23");
+
+            doubleList.PrintList();
+
         }
 
         // Метод для генерации нового списка случайных чисел
