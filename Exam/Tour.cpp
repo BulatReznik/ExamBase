@@ -49,17 +49,20 @@ struct List {
 				current = current->nextNode;
 			}
 
+			//Вставка в начало
 			if (previous == nullptr) {
 				newNode->nextNode = first;
 				first->prevNode = newNode;
 				first = newNode;
 			}
+			// Вставка в конец
 			else if (current == nullptr)
 			{
 				previous->nextNode = newNode;
 				newNode->prevNode = previous;
 				last = newNode;
 			}
+			// Вставка в середину
 			else
 			{
 				previous->nextNode = newNode;
