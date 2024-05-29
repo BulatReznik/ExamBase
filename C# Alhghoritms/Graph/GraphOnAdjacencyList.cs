@@ -19,7 +19,6 @@ namespace C__Alhghoritms.Graph
         }
 
         // Сложность метода: O(1)
-
         public void AddEdge(int v, int w)
         {
             // Сложность метода: O(1)
@@ -27,7 +26,6 @@ namespace C__Alhghoritms.Graph
         }
 
         // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
-
         public void DFS(int startVertex)
         {
             // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
@@ -35,8 +33,11 @@ namespace C__Alhghoritms.Graph
             DFSUtil(startVertex, visited);
         }
 
-        // Вспомогательный метод для рекурсивного выполнения обхода в глубину (DFS)
-
+        /// <summary>
+        /// Вспомогательный метод для рекурсивного выполнения обхода в глубину (DFS)
+        /// </summary>
+        /// <param name="vertex"></param>
+        /// <param name="visited"></param>S
         private void DFSUtil(int vertex, bool[] visited)
         {
             // Отметить текущую вершину как посещённую
@@ -53,8 +54,10 @@ namespace C__Alhghoritms.Graph
             }
         }
 
-        // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
-
+        /// <summary>
+        /// Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
+        /// </summary>
+        /// <param name="startVertex"></param>
         public void BFS(int startVertex)
         {
             // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
