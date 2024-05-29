@@ -1,22 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace C__Alhghoritms.Sorts
+namespace C__Algorithms.Sorts
 {
     public class InsertionSort
     {
+        // Основной метод сортировки, использующий алгоритм InsertionSort.
+        // Сложность:
+        // - Средний и худший случаи: O(n^2)
+        // - Лучший случай (уже отсортированный массив): O(n)
         public void Sort(int[] array)
         {
             var arrayCount = array.Length;
+
+            // Проходим по каждому элементу массива начиная со второго
             for (var i = 1; i < arrayCount; i++)
             {
+                // Ключевой элемент, который нужно вставить на своё место
                 var key = array[i];
                 var j = i - 1;
 
                 // Перемещаем элементы массива, которые больше key, на одну позицию вперёд
+                // Сложность: O(n) в худшем случае, так как в среднем случае каждое сравнение
+                // и перемещение занимает время O(1), но в худшем случае все n элементов могут быть перемещены.
                 while (j >= 0 && array[j] > key)
                 {
                     array[j + 1] = array[j];
@@ -24,6 +29,7 @@ namespace C__Alhghoritms.Sorts
                 }
 
                 // Вставляем key на своё правильное место
+                // Сложность вставки элемента: O(1)
                 array[j + 1] = key;
             }
         }

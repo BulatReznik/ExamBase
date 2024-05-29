@@ -20,6 +20,7 @@ namespace C__Algorithms
         /// <returns></returns>
         private int GetHash(string key)
         {
+            // Сложность: O(1)
             return Math.Abs(key.GetHashCode()) % _maxSize;
         }
 
@@ -30,14 +31,22 @@ namespace C__Algorithms
         /// <returns></returns>
         private int GetHash2(string key)
         {
-            return 7 - (Math.Abs(key.GetHashCode()) % 7); 
+            // Сложность: O(1)
+            return 7 - (Math.Abs(key.GetHashCode()) % 7);
         }
 
+        /// <summary>
+        /// Вставка элемента в хэш-таблицу
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public void Insert(string key, string? value)
         {
             var item = new Item(key, value);
             var hash = GetHash(key);
 
+            // Цикл поиска свободного места с использованием двойного хэширования
+            // Сложность в среднем случае: O(1), в худшем случае: O(n)
             for (var i = 0; i < _maxSize; i++)
             {
                 var index = (hash + i * GetHash2(key)) % _maxSize; // Двойное хэширование
@@ -52,10 +61,17 @@ namespace C__Algorithms
             throw new Exception("HashTable полностью заполнена");
         }
 
+        /// <summary>
+        /// Поиск элемента в хэш-таблице
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public string? Search(string key)
         {
             var hash = GetHash(key);
 
+            // Цикл поиска элемента с использованием двойного хэширования
+            // Сложность в среднем случае: O(1), в худшем случае: O(n)
             for (var i = 0; i < _maxSize; i++)
             {
                 var index = (hash + i * GetHash2(key)) % _maxSize;
@@ -70,10 +86,16 @@ namespace C__Algorithms
             return null;
         }
 
+        /// <summary>
+        /// Удаление элемента из хэш-таблицы
+        /// </summary>
+        /// <param name="key"></param>
         public void Remove(string key)
         {
             var hash = GetHash(key);
 
+            // Цикл поиска и удаления элемента с использованием двойного хэширования
+            // Сложность в среднем случае: O(1), в худшем случае: O(n)
             for (var i = 0; i < _maxSize; i++)
             {
                 var index = (hash + i * GetHash2(key)) % _maxSize;

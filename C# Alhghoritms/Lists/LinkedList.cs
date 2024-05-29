@@ -6,8 +6,13 @@ namespace C__Alhghoritms.Lists
     {
         public Node? firstNode;
 
+        /// <summary>
+        /// Добавляет элемент в отсортированный односвязный список
+        /// </summary>
+        /// <param name="value">Данные для добавления</param>
         public void Add(string value)
         {
+            // Сложность: O(n), где n - размер списка
             var newNode = new Node(value);
 
             if (firstNode == null)
@@ -42,8 +47,12 @@ namespace C__Alhghoritms.Lists
             }
         }
 
+        /// <summary>
+        /// Выводит элементы списка на консоль
+        /// </summary>
         public void PrintList()
         {
+            // Сложность: O(n), где n - размер списка
             Node? currentNode = firstNode;
             while (currentNode != null)
             {

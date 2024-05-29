@@ -1,0 +1,85 @@
+﻿@page
+@model Web_App.Pages.LoginModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Тест</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="headere-inner">
+        <nav class="nav-header">
+            <ul>
+                <li>
+                    <a href="Task5.html">Текст</a>
+                </li>
+                <li>
+                    <a href="Task4.html">Текст</a>
+                </li>
+                <li>
+                    <a href="Task5.html">Текст</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <form>
+            <label>Логин</label>
+            <input type="text" id="login" />
+
+            <label>Пароль</label>
+            <input type="password" id="password" />
+
+            <button id="buttonSuc">Кнопка хуепка</button>
+        </form>
+
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+                    vitae eos consectetur magni unde blanditiis quia, maxime quis!
+                    Cumque, commodi accusamus. Numquam nobis fuga quis libero esse nemo
+                    amet recusandae?
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+                    vitae eos consectetur magni unde blanditiis quia, maxime quis!
+                    Cumque, commodi accusamus. Numquam nobis fuga quis libero esse nemo
+                    amet recusandae?
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="text">Сайт создал я Булат</div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $("#buttonSuc").click(function (e) {
+
+            e.preventDefault();
+            var password = $("#password");
+            var login = $("#login");
+
+            if (password.val().length > 6 && login.val().length > 0) {
+                alert("заебумба");
+            } else {
+                alert("Не заебумба");
+            }
+        });
+    </script>
+</body>
+</html>

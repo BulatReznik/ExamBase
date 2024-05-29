@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace C__Alhghoritms.Graph
 {
@@ -28,6 +25,11 @@ namespace C__Alhghoritms.Graph
         /// </summary>
         private int _currentEdge;
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="vertices">Количество вершин в графе</param>
+        /// <param name="edges">Количество рёбер в графе</param>
         public GraphOnIncidenceMatrix(int vertices, int edges)
         {
             _vertices = vertices;
@@ -36,18 +38,24 @@ namespace C__Alhghoritms.Graph
             _currentEdge = 0;
         }
 
+        // Сложность метода: O(1)
+
         // Метод для добавления ребра в граф
         public void AddEdge(int v, int w)
         {
-            if (_currentEdge >= _edges) throw new InvalidOperationException("Все ребра уже добавлены");
+            // Сложность метода: O(1)
+            if (_currentEdge >= _edges) throw new InvalidOperationException("Все рёбра уже добавлены");
 
             _incidenceMatrix[v, _currentEdge] = 1;
             _incidenceMatrix[w, _currentEdge] = 1;
             _currentEdge++;
         }
 
+        // Сложность метода: O(V*E), где V - количество вершин, E - количество рёбер
+
         public void PrintMatrix()
         {
+            // Сложность метода: O(V*E), где V - количество вершин, E - количество рёбер
             for (int i = 0; i < _vertices; i++)
             {
                 for (int j = 0; j < _edges; j++)
@@ -61,9 +69,10 @@ namespace C__Alhghoritms.Graph
         /// <summary>
         /// Метод для выполнения обхода в глубину (DFS)
         /// </summary>
-        /// <param name="startVertex"></param>
+        /// <param name="startVertex">Начальная вершина</param>
         public void DFS(int startVertex)
         {
+            // Сложность метода: O(V*E), где V - количество вершин, E - количество рёбер
             bool[] visited = new bool[_vertices];
             DFSUtil(startVertex, visited);
         }
@@ -71,8 +80,8 @@ namespace C__Alhghoritms.Graph
         /// <summary>
         /// Вспомогательный метод для рекурсивного выполнения обхода в глубину (DFS)
         /// </summary>
-        /// <param name="vertex"></param>
-        /// <param name="visited"></param>
+        /// <param name="vertex">Текущая вершина</param>
+        /// <param name="visited">Массив посещённых вершин</param>
         private void DFSUtil(int vertex, bool[] visited)
         {
             // Отметить текущую вершину как посещённую
@@ -95,9 +104,13 @@ namespace C__Alhghoritms.Graph
             }
         }
 
-        // Метод для выполнения обхода в ширину (BFS)
+        /// <summary>
+        /// Метод для выполнения обхода в ширину (BFS)
+        /// </summary>
+        /// <param name="startVertex">Начальная вершина</param>
         public void BFS(int startVertex)
         {
+            // Сложность метода: O(V*E), где V - количество вершин, E - количество рёбер
             bool[] visited = new bool[_vertices];
             Queue<int> queue = new Queue<int>();
 

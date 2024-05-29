@@ -1,21 +1,13 @@
-﻿namespace C__Alhghoritms.Graph
+﻿using System;
+using System.Collections.Generic;
+
+namespace C__Alhghoritms.Graph
 {
     public class GraphOnAdjacencyList
     {
-        /// <summary>
-        /// Количество вершин в графе
-        /// </summary>
         private int _vertices;
-
-        /// <summary>
-        /// Список смежности для хранения рёбер графа
-        /// </summary>
         private List<int>[] _adjacencyList;
 
-        /// <summary>
-        /// Конструктор для инициализации графа
-        /// </summary>
-        /// <param name="vertices">Количество вершин</param>
         public GraphOnAdjacencyList(int vertices)
         {
             _vertices = vertices;
@@ -26,31 +18,25 @@
             }
         }
 
-        /// <summary>
-        /// Метод для добавления ребра в граф
-        /// </summary>
-        /// <param name="v">Начальная вершина</param>
-        /// <param name="w">Конечная вершина</param>
+        // Сложность метода: O(1)
+
         public void AddEdge(int v, int w)
         {
+            // Сложность метода: O(1)
             _adjacencyList[v].Add(w);
         }
 
-        /// <summary>
-        /// Метод для выполнения обхода в глубину (DFS)
-        /// </summary>
-        /// <param name="startVertex">Начальная вершина</param>
+        // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
+
         public void DFS(int startVertex)
         {
+            // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
             bool[] visited = new bool[_vertices];
             DFSUtil(startVertex, visited);
         }
 
-        /// <summary>
-        /// Вспомогательный метод для рекурсивного выполнения обхода в глубину (DFS)
-        /// </summary>
-        /// <param name="vertex">Текущая вершина</param>
-        /// <param name="visited">Массив посещённых вершин</param>
+        // Вспомогательный метод для рекурсивного выполнения обхода в глубину (DFS)
+
         private void DFSUtil(int vertex, bool[] visited)
         {
             // Отметить текущую вершину как посещённую
@@ -67,12 +53,11 @@
             }
         }
 
-        /// <summary>
-        /// Метод для выполнения обхода в ширину (BFS)
-        /// </summary>
-        /// <param name="startVertex">Начальная вершина</param>
+        // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
+
         public void BFS(int startVertex)
         {
+            // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
             bool[] visited = new bool[_vertices];
             Queue<int> queue = new Queue<int>();
 

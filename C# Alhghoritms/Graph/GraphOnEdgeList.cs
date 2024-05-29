@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace C__Alhghoritms.Graph
 {
@@ -21,25 +18,34 @@ namespace C__Alhghoritms.Graph
             _edgeList = new List<Tuple<int, int>>();
         }
 
+        // Сложность метода: O(1)
+
         // Метод для добавления ребра в граф
         public void AddEdge(int v, int w)
         {
+            // Сложность метода: O(1)
             _edgeList.Add(new Tuple<int, int>(v, w));
             _edgeList.Add(new Tuple<int, int>(w, v)); // Добавляем и обратное ребро для неориентированного графа
         }
 
+        // Сложность метода: O(E), где E - количество рёбер
+
         // Метод для печати всех рёбер
         public void PrintEdges()
         {
+            // Сложность метода: O(E), где E - количество рёбер
             foreach (var edge in _edgeList)
             {
                 Console.WriteLine($"({edge.Item1}, {edge.Item2})");
             }
         }
 
+        // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
+
         // Метод для выполнения обхода в глубину (DFS)
         public void DFS(int startVertex)
         {
+            // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
             bool[] visited = new bool[_vertices];
             DFSUtil(startVertex, visited);
         }
@@ -64,6 +70,7 @@ namespace C__Alhghoritms.Graph
         // Метод для выполнения обхода в ширину (BFS)
         public void BFS(int startVertex)
         {
+            // Сложность метода: O(V+E), где V - количество вершин, E - количество рёбер
             bool[] visited = new bool[_vertices];
             Queue<int> queue = new Queue<int>();
 

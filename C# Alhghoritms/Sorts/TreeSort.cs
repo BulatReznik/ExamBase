@@ -2,22 +2,30 @@
 {
     internal class TreeSort
     {
+        // Сортирует массив, используя алгоритм TreeSort.
+        // Сложность: O(n log n) в среднем случае, O(n^2) в худшем случае.
         public int[] Sort(int[] array)
         {
             var tree = new BTree();
 
-            // Добавляем все элементы массива в дерево
+            // Добавляем все элементы массива в дерево.
+            // Вставка каждого элемента в среднем занимает O(log n), поэтому для всех элементов O(n log n).
             foreach (var item in array)
             {
                 tree.Add(item);
             }
 
             var sortedList = new List<int>();
+            // Обход дерева (InOrder Traversal) для получения отсортированного списка.
+            // Сложность: O(n), так как каждый элемент посещается один раз.
             tree.InOrderTraversal(tree.Root, sortedList);
 
+            // Преобразование списка в массив.
+            // Сложность: O(n).
             return sortedList.ToArray();
         }
 
+        // Класс, представляющий узел двоичного дерева поиска (BST).
         public class Node
         {
             public int Value { get; set; }
@@ -32,10 +40,13 @@
             }
         }
 
+        // Класс, представляющий само двоичное дерево поиска (BST).
         public class BTree
         {
             public Node? Root { get; private set; }
 
+            // Добавляет новое значение в дерево.
+            // Сложность: O(log n) в среднем случае, O(n) в худшем случае (если дерево вырождено).
             public void Add(int newValue)
             {
                 if (Root == null)
@@ -70,6 +81,8 @@
                 }
             }
 
+            // Выполняет обход дерева в порядке возрастания (InOrder Traversal).
+            // Сложность: O(n), так как каждый узел посещается один раз.
             public void InOrderTraversal(Node? node, ICollection<int> sortedList)
             {
                 if (node == null)
@@ -80,12 +93,16 @@
                 InOrderTraversal(node.RightNode, sortedList);
             }
 
+            // Удаляет значение из дерева.
+            // Сложность: O(log n) в среднем случае, O(n) в худшем случае.
             public bool Remove(int value)
             {
                 Root = Remove(Root, value);
                 return Root != null;
             }
 
+            // Рекурсивный метод для удаления узла.
+            // Сложность: O(log n) в среднем случае, O(n) в худшем случае.
             private Node? Remove(Node? node, int value)
             {
                 if (node == null) return node;
@@ -112,6 +129,8 @@
                 return node;
             }
 
+            // Находит минимальное значение в дереве.
+            // Сложность: O(log n) в среднем случае, O(n) в худшем случае.
             private int MinValue(Node node)
             {
                 var minValue = node.Value;
@@ -124,6 +143,8 @@
                 return minValue;
             }
 
+            // Выводит значения дерева в порядке возрастания.
+            // Сложность: O(n), так как каждый узел посещается один раз.
             public void PrintTree(Node? node)
             {
                 if (node == null) return;

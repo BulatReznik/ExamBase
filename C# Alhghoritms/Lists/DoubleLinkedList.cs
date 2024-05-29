@@ -7,13 +7,23 @@ namespace C__Alhghoritms.Lists
         public Node? First { get; private set; }
         public Node? Last { get; private set; }
 
+        /// <summary>
+        /// Проверяет, пуст ли список
+        /// </summary>
+        /// <returns>true, если список пуст, иначе false</returns>
         public bool IsEmpty()
         {
+            // Сложность: O(1)
             return First == null;
         }
 
+        /// <summary>
+        /// Добавляет элемент в отсортированный двусвязный список
+        /// </summary>
+        /// <param name="data">Данные для добавления</param>
         public void Add(string data)
         {
+            // Сложность: O(n), где n - размер списка
             var newNode = new Node(data);
 
             Node? previous = null;
@@ -57,8 +67,12 @@ namespace C__Alhghoritms.Lists
             }
         }
 
+        /// <summary>
+        /// Выводит элементы списка на консоль
+        /// </summary>
         public void PrintList()
         {
+            // Сложность: O(n), где n - размер списка
             var current = First;
             while (current != null)
             {
