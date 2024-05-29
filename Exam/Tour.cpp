@@ -49,7 +49,7 @@ struct List {
 				current = current->nextNode;
 			}
 
-			//Вставка в начало
+			// Вставка в начало
 			if (previous == nullptr) {
 				newNode->nextNode = first;
 				first->prevNode = newNode;
